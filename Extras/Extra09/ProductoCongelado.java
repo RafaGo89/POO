@@ -11,6 +11,7 @@ public class ProductoCongelado extends Producto{
     
     // Método constructor
     public ProductoCongelado(){
+        super(); // llamamos al constructor padre
         System.out.print("Ingrese la temperatura de congelacion recomendada: ");
         this.tempCongelacion = entrada.nextFloat();
     } // constructor

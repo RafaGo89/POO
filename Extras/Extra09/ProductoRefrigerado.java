@@ -11,6 +11,7 @@ public class ProductoRefrigerado extends Producto{
 
     // Método constructor
     public ProductoRefrigerado(){
+        super(); // llamamos al constructor padre
         System.out.print("Ingrese el codigo del organismo de supervision alimentaria: ");
         this.codigoOrganismo = entrada.nextLine();
     } // constructor

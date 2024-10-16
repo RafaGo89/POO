@@ -12,6 +12,7 @@ public class ProductoFresco extends Producto{
 
     // Método constructor
     public ProductoFresco(){
+        super(); // llamamos al constructor padre
         System.out.print("Ingrese la fecha de envasado del producto (ej. 22/12/24): ");
         this.fechaEnvasado = entrada.nextLine();
         System.out.print("Ingrese el pais de origen del producto: ");
