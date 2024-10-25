@@ -1,4 +1,4 @@
-package mx.udg.cucea.modificadoresdeacceso;
+package paquete3;
 
 /*Modificadores de acceso, para restringir a nivel de paquetes
     -- Private (solo se puede acceder en la misma clase)
