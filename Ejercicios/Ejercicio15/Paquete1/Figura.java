@@ -64,7 +64,7 @@ class Circulo extends Figura{
 
     // Método para devolver el radio del circulo
     public double getRadio(){
-        return this.radio;
+        return radio;
     }
 
 } // Clase circulo
@@ -89,8 +89,74 @@ class Cuadrado extends Figura{
 
     // Método para devolver el lado del cuadrado
     public double getLado(){
-        return this.lado;
+        return lado;
     }
 
 
 } // clase Cuadrado
+
+class Rectangulo extends Figura{
+    // Atributos
+    private double base;
+    private double altura;
+
+    // Métodos
+
+    // Método para calcular el area del rectangulo
+    public double calcularArea(double base, double altura){
+        return base * altura;
+    }
+
+    // Métodos setters
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    // Métodos getters
+    public double getAltura() {
+        return altura;
+    }
+
+    public double getBase() {
+        return base;
+    }
+    
+
+} // Clase rectangulo
+
+class Triangulo extends Figura{
+    // Atributos
+    private double base;
+    private double altura;
+
+    // Métodos
+
+    // Método para calcular el área del triangulo
+    public double calcularArea(double base, double altura){
+        return (base * altura) / 2;
+    }
+
+    // Métodos setters
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+
+    public void setBase(double base) {
+        this.base = base;
+    }
+
+    // Métodos getters
+    public double getAltura() {
+        return altura;
+    }
+
+    public double getBase() {
+        return base;
+    }
+
+
+} // Clase figura
