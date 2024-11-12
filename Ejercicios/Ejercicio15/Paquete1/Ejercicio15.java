@@ -4,7 +4,6 @@
 package Paquete1;
 
 import java.util.Scanner;
-
 public class Ejercicio15 {
     public static void main(String[] args) {
         // Creamos un objeto scanner para leer desde teclado
@@ -18,7 +17,7 @@ public class Ejercicio15 {
         c1.setRadio(entrada.nextDouble());
 
         // Calculamos el área del circulo
-        System.out.println("\n*El área del circulo es: " + c1.calcularArea(c1.getRadio()));
+        System.out.println("\n*El área del circulo es: " + c1.calcularArea());
 
 
         // Creamos un objeto tipo cuadrado
@@ -29,8 +28,7 @@ public class Ejercicio15 {
         cua1.setLado(entrada.nextDouble());
 
         // Calculamos el área del cuadrado
-        System.out.println("\n*El área del cuadrado es: " + cua1.calcularArea(cua1.getLado()));
-
+        System.out.println("\n*El área del cuadrado es: " + cua1.calcularArea());
 
         // Creamos un objeto tipo rectangulo
         Rectangulo r1 = new Rectangulo();
@@ -43,7 +41,7 @@ public class Ejercicio15 {
         r1.setAltura(entrada.nextDouble());
 
         // Calculamos el área del rectangulo
-        System.out.println("\n*El área del rectangulo es: " + r1.calcularArea(r1.getBase(), r1.getAltura()));
+        System.out.println("\n*El área del rectangulo es: " + r1.calcularArea());
 
         
         // Creamos un objeto triangulo
@@ -57,6 +55,6 @@ public class Ejercicio15 {
         t1.setAltura(entrada.nextDouble());
 
         // Calculamos el área del triangulo
-        System.out.println("\n*El área del triangulo es: " + t1.calcularArea(t1.getBase(),t1.getAltura()));
+        System.out.println("\n*El área del triangulo es: " + t1.calcularArea());
     }
 }

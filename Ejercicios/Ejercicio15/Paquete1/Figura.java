@@ -6,7 +6,7 @@ package Paquete1;
 
 import java.util.Scanner;
 
-public class Figura{
+public abstract class Figura{
     // Creamos un objeto scanner para leer desde teclado
     Scanner entrada = new Scanner(System.in);
 
@@ -22,9 +22,7 @@ public class Figura{
     }
 
     // Método generico para calcular el área de la figura
-    private double calcularArea(){
-        return 0.0;
-    }
+    public abstract double calcularArea();
 
     // Métodos setters
 
@@ -48,8 +46,13 @@ class Circulo extends Figura{
 
     // Métodos
 
+    // Método constructor
+    Circulo(){
+        System.out.println("\nFigura---> Círculo");
+    }
+
     // Método para calcular el area del circulo
-    public double calcularArea(double radio){
+    public double calcularArea(){
         return Math.PI * Math.pow(radio, 2);
     }
 
@@ -73,8 +76,15 @@ class Cuadrado extends Figura{
     // Atributo
     private double lado;
 
+    // Métodos
+
+    // Método constructor
+    Cuadrado(){
+        System.out.println("\nFigura---> Cuadrado");
+    }
+
     // Método para calcular el área del cuadrado
-    public double calcularArea(double lado){
+    public double calcularArea(){
         return lado * lado;
     }
 
@@ -102,8 +112,13 @@ class Rectangulo extends Figura{
 
     // Métodos
 
+    // Método constructor
+    Rectangulo(){
+        System.out.println("\nFigura---> Rectangulo");
+    }
+
     // Método para calcular el area del rectangulo
-    public double calcularArea(double base, double altura){
+    public double calcularArea(){
         return base * altura;
     }
 
@@ -135,8 +150,13 @@ class Triangulo extends Figura{
 
     // Métodos
 
+    // Método constructor
+    Triangulo(){
+        System.out.println("\nFigura---> Triangulo");
+    }
+
     // Método para calcular el área del triangulo
-    public double calcularArea(double base, double altura){
+    public double calcularArea(){
         return (base * altura) / 2;
     }
 
