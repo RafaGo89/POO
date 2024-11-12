@@ -36,6 +36,7 @@ public class Persona{
         }
         else{
             System.out.println("\n¡Edad ingresada no válida! Debe estar entre 1 y 120 años\n");
+            this.edad = 18; // Si la edad no es válidad, establecemos una por defecto
         }
     }
 
