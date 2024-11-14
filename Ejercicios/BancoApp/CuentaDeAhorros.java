@@ -22,10 +22,10 @@ public class CuentaDeAhorros extends CuentaBancaria{
     }
     
     // Método para aplicar la tasa anual de interés al saldo de la cuenta
-    public void aplicarTasa(double saldo){
-        setSaldo(saldo + (saldo * tasaInteresAnual));
+    public void aplicarTasa(){
         System.out.println("\nSe aplico una tasa de interés anual de " + 100 * tasaInteresAnual + "%");
-        System.out.println("Interés aplicado de: " + saldo * tasaInteresAnual);
+        System.out.println("Interés aplicado de: " + getSaldo() * tasaInteresAnual);
+        setSaldo(getSaldo() + (getSaldo() * tasaInteresAnual)); // aplicamos la tasa de interés al saldo
         System.out.println("El saldo con interés ahora es de: $" + getSaldo());
     }
     
