@@ -2,7 +2,7 @@ package mx.udg.cucea.bancoapp;
 
 public class CuentaDeAhorros extends CuentaBancaria{
     // Atributos
-    private double tasaInteresAnual; // Incialice la tasa anual
+    private double tasaInteresAnual;
     
     // Métodos
     
@@ -11,12 +11,12 @@ public class CuentaDeAhorros extends CuentaBancaria{
     public CuentaDeAhorros(double tasaInteresAnual, String numCuenta, String nombreTitular, String correo, Double saldo) {
         super(numCuenta, nombreTitular, correo, saldo);
         this.tasaInteresAnual = tasaInteresAnual;
+        setTipoCuenta("Cuenta de ahorros");
     }
     
     // Método para mostrar detalles de la cuenta
     @Override
     public void mostrarDatosCuenta() {
-        System.out.print("\n**Cuenta De Ahorros**");
         super.mostrarDatosCuenta();
         System.out.println("Tasa de interes: " + 100 * tasaInteresAnual + "%");
     }

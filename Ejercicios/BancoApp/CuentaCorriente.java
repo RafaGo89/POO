@@ -11,11 +11,11 @@ public class CuentaCorriente extends CuentaBancaria {
     public CuentaCorriente(double limiteDeCredito, String numCuenta, String nombreTitular, String correo, Double saldo) {
         super(numCuenta, nombreTitular, correo, saldo);
         this.limiteDeCredito = limiteDeCredito;
+        setTipoCuenta("Cuenta Corriente");
     }
     
     @Override
     public void mostrarDatosCuenta() {
-        System.out.print("\n**Cuenta Corriente**");
         super.mostrarDatosCuenta();
         System.out.println("Límite de crédito de la cuenta: $" + limiteDeCredito);
     }

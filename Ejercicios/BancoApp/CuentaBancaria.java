@@ -6,6 +6,7 @@ public class CuentaBancaria {
     private String nombreTitular;
     private String correo;
     private Double saldo;
+    private String tipoCuenta;
     
     // Métodos
 
@@ -15,6 +16,7 @@ public class CuentaBancaria {
         this.nombreTitular = nombreTitular;
         this.correo = correo;
         this.saldo = saldo;
+        this.tipoCuenta = "Cuenta Bancaria";
     }
     
     
@@ -48,7 +50,8 @@ public class CuentaBancaria {
     
     // Método para mostrar los detalles de la cuenta bancaria
     public void mostrarDatosCuenta(){
-        System.out.println("\n**Cuenta**");
+        System.out.println("\n" + tipoCuenta);
+        System.out.println("**Datos de la cuenta**");
         System.out.println("Número de la cuenta: " + numCuenta);
         System.out.println("Titular de la cuenta: " + nombreTitular);
         System.out.println("Correo electrónico asociado: " + correo);
@@ -71,6 +74,10 @@ public class CuentaBancaria {
     public void setSaldo(Double saldo) {
         this.saldo = saldo;
     }
+
+    public void setTipoCuenta(String tipoCuenta) {
+        this.tipoCuenta = tipoCuenta;
+    }
     
     // Métodos getters
     public String getNumCuenta() {
@@ -87,6 +94,10 @@ public class CuentaBancaria {
 
     public Double getSaldo() {
         return saldo;
+    }
+
+    public String getTipoCuenta() {
+        return tipoCuenta;
     }
     
 } // Clase Cuenta Bancaria
