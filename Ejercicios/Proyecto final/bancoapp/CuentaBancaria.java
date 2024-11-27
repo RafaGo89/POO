@@ -13,11 +13,7 @@ public class CuentaBancaria {
     // Métodos
 
     // Método constructor
-    public CuentaBancaria(String numCuenta, String nombreTitular, String correo, Double saldo) {
-        this.numCuenta = numCuenta;
-        this.nombreTitular = nombreTitular;
-        this.correo = correo;
-        this.saldo = saldo;
+    public CuentaBancaria() {
         this.tipoCuenta = "Cuenta Bancaria";
     }
     

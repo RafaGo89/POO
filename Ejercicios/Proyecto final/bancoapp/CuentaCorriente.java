@@ -10,9 +10,7 @@ public class CuentaCorriente extends CuentaBancaria {
     
     // Método constructor
 
-    public CuentaCorriente(double limiteDeCredito, String numCuenta, String nombreTitular, String correo, Double saldo) {
-        super(numCuenta, nombreTitular, correo, saldo);
-        this.limiteDeCredito = limiteDeCredito;
+    public CuentaCorriente() {
         setTipoCuenta("Cuenta Corriente");
     }
     

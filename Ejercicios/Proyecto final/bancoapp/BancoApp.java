@@ -1,14 +1,14 @@
 package mx.udg.cucea.bancoapp;
 
-import mx.udg.cucea.interfazgrafica.Ventana;
+import mx.udg.cucea.interfazgrafica.Menu;
 
 public class BancoApp {
 
     public static void main(String[] args) {
         // Creamos una objeto tipo ventana
-        Ventana ventana = new Ventana();
+        Menu menu1 = new Menu();
         
         // Hacemos visible la ventana
-        ventana.setVisible(true);
+        menu1.setVisible(true);
     } // Main
 } // Clase Banco App

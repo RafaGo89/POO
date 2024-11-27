@@ -8,9 +8,7 @@ public class CuentaDeAhorros extends CuentaBancaria{
     
     // Método constructor
 
-    public CuentaDeAhorros(double tasaInteresAnual, String numCuenta, String nombreTitular, String correo, Double saldo) {
-        super(numCuenta, nombreTitular, correo, saldo);
-        this.tasaInteresAnual = tasaInteresAnual;
+    public CuentaDeAhorros() {
         setTipoCuenta("Cuenta de ahorros");
     }
     
