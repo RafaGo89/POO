@@ -380,8 +380,6 @@ public class VentanaCB extends javax.swing.JFrame {
                 // Bloque para atrapar cuando se ingresa algo que no es un numero
                 JOptionPane.showMessageDialog(null, "Error! Valor ingresado no válido");
             }
-        
-            txtSaldo.setText("$" + String.valueOf(cuenta.getSaldo()));
         }
         else{
             JOptionPane.showMessageDialog(null, "Error! Crea una cuenta primero");
@@ -421,7 +419,6 @@ public class VentanaCB extends javax.swing.JFrame {
                 // Bloque para atrapar cuando se ingresa algo que no es un numero
                 JOptionPane.showMessageDialog(null, "Error! Valor ingresado no válido");
             }
-            txtSaldo.setText("$" + String.valueOf(cuenta.getSaldo()));
         }
         else{
             JOptionPane.showMessageDialog(null, "Error! Crea una cuenta primero");
