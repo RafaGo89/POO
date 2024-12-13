@@ -1,3 +1,7 @@
+// Programción orientada a objetos
+// Proyecto final (sistema bancario)
+// By: Rafael Rodríguez Gómez
+
 package mx.udg.cucea.bancoapp;
 
 import mx.udg.cucea.interfazgrafica.Menu;

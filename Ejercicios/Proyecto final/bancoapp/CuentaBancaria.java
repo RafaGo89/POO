@@ -15,6 +15,7 @@ public class CuentaBancaria {
     // Método constructor
     public CuentaBancaria() {
         this.tipoCuenta = "Cuenta Bancaria";
+        this.saldo = 0.0;
     }
     
     

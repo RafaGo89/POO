@@ -1,5 +1,7 @@
 package mx.udg.cucea.bancoapp;
 
+import javax.swing.JOptionPane;
+
 public class CuentaDeAhorros extends CuentaBancaria{
     // Atributos
     private double tasaInteresAnual;
@@ -21,10 +23,10 @@ public class CuentaDeAhorros extends CuentaBancaria{
     
     // Método para aplicar la tasa anual de interés al saldo de la cuenta
     public void aplicarTasa(){
-        System.out.println("\nSe aplico una tasa de interés anual de " + 100 * tasaInteresAnual + "%");
-        System.out.println("Interés aplicado de: " + getSaldo() * tasaInteresAnual);
+        JOptionPane.showMessageDialog(null, "Se aplico una tasa de interés anual de " + 100 * tasaInteresAnual + "%"
+        + "\nSe aplico una tasa de interés anual de " + 100 * tasaInteresAnual + "%"
+        + "\nEl saldo con interés ahora es de: $" + (getSaldo() + (getSaldo() * tasaInteresAnual)));
         setSaldo(getSaldo() + (getSaldo() * tasaInteresAnual)); // aplicamos la tasa de interés al saldo
-        System.out.println("El saldo con interés ahora es de: $" + getSaldo());
     }
     
     // Métodos setters

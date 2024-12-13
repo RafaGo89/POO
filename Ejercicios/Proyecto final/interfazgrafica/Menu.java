@@ -4,7 +4,9 @@ import javax.swing.JFrame;
 
 public class Menu extends javax.swing.JFrame {
     // Variables
-    private VentanaCC vcc = new VentanaCC();
+    private VentanaCC vcc = new VentanaCC(); // Creamos la ventana cuenta corriente
+    private VentanaCB vcb = new VentanaCB(); // Creamos la ventana cuenta bancaria
+    private VentanaCA vca = new VentanaCA(); // Creamos la ventana cuenta de ahorros
     
     // Método constructor
     public Menu() {
@@ -46,7 +48,7 @@ public class Menu extends javax.swing.JFrame {
         btnCuentaCorriente = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnSalir1 = new javax.swing.JButton();
-        btnCuentaBancaria1 = new javax.swing.JButton();
+        btnCuentaBancaria = new javax.swing.JButton();
         btnCuentaDeAhorros1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,14 +92,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        btnCuentaBancaria1.setBackground(java.awt.Color.darkGray);
-        btnCuentaBancaria1.setFont(new java.awt.Font("Rockwell", 0, 22)); // NOI18N
-        btnCuentaBancaria1.setForeground(new java.awt.Color(204, 204, 204));
-        btnCuentaBancaria1.setText("Cuenta bancaria");
-        btnCuentaBancaria1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCuentaBancaria1.addActionListener(new java.awt.event.ActionListener() {
+        btnCuentaBancaria.setBackground(java.awt.Color.darkGray);
+        btnCuentaBancaria.setFont(new java.awt.Font("Rockwell", 0, 22)); // NOI18N
+        btnCuentaBancaria.setForeground(new java.awt.Color(204, 204, 204));
+        btnCuentaBancaria.setText("Cuenta bancaria");
+        btnCuentaBancaria.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCuentaBancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCuentaBancaria1ActionPerformed(evt);
+                btnCuentaBancariaActionPerformed(evt);
             }
         });
 
@@ -124,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(101, 101, 101)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCuentaBancaria1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCuentaCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCuentaDeAhorros1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -142,7 +144,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(29, 29, 29)
-                .addComponent(btnCuentaBancaria1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCuentaBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(btnCuentaDeAhorros1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -168,8 +170,8 @@ public class Menu extends javax.swing.JFrame {
 
     // Botón para cambiar a la ventana de la cuenta corriente
     private void btnCuentaCorrienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaCorrienteActionPerformed
-        vcc.setM1(this); // Incializamos la ventana cuenta corriente
-        vcc.setVisible(true); // Hacemos visible la ventana cuenta corriente
+        vcc.setM1(this); // Incializamos la ventana cuenta bancaria
+        vcc.setVisible(true); // Hacemos visible la ventana cuenta bancaria
         this.setVisible(false); // Ocultamos el menú
     }//GEN-LAST:event_btnCuentaCorrienteActionPerformed
 
@@ -178,17 +180,22 @@ public class Menu extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalir1ActionPerformed
 
-    private void btnCuentaBancaria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaBancaria1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCuentaBancaria1ActionPerformed
+    // Botón para cambiar a la ventana de la cuenta bancaria
+    private void btnCuentaBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaBancariaActionPerformed
+        vcb.setM1(this); // Incializamos la ventana cuenta corriente
+        vcb.setVisible(true); // Hacemos visible la ventana cuenta corriente
+        this.setVisible(false); // Ocultamos el menú
+    }//GEN-LAST:event_btnCuentaBancariaActionPerformed
 
     private void btnCuentaDeAhorros1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaDeAhorros1ActionPerformed
-        // TODO add your handling code here:
+        vca.setM1(this); // Incializamos la ventana cuenta corriente
+        vca.setVisible(true); // Hacemos visible la ventana cuenta corriente
+        this.setVisible(false); // Ocultamos el menú:
     }//GEN-LAST:event_btnCuentaDeAhorros1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCuentaBancaria1;
+    private javax.swing.JButton btnCuentaBancaria;
     private javax.swing.JButton btnCuentaCorriente;
     private javax.swing.JButton btnCuentaDeAhorros1;
     private javax.swing.JButton btnSalir1;

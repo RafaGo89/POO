@@ -4,20 +4,20 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import mx.udg.cucea.bancoapp.*;
 
-public class VentanaCC extends javax.swing.JFrame {
+public class VentanaCA extends javax.swing.JFrame {
     // Creamos una cuenta coriente
-    CuentaCorriente cuenta  = new CuentaCorriente();
+    CuentaDeAhorros cuenta  = new CuentaDeAhorros();
     
     // Variables
     private Menu m1; 
-    boolean bandera = false;
+    boolean bandera = false, tasaAplicada = false;
     
     // Método constructor
-    public VentanaCC() {
+    public VentanaCA() {
         initComponents();
         
         // Establecemos el título de la ventana
-        setTitle("Cuenta corriente");
+        setTitle("Cuenta de ahorros");
         
         // Establecemos la posición incial de la ventana
         setLocationRelativeTo(null);
@@ -29,7 +29,7 @@ public class VentanaCC extends javax.swing.JFrame {
         txtNumCuenta.setEditable(false);
         txtNombreTitular.setEditable(false);
         txtCorreo.setEditable(false);
-        txtLimiteCredito.setEditable(false);
+        txtTasaAnual.setEditable(false);
         txtSaldo.setEditable(false);
         txtTipoCuenta.setEditable(false);
     }
@@ -57,10 +57,9 @@ public class VentanaCC extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnMostrarDatos = new javax.swing.JButton();
-        txtLimiteCredito = new javax.swing.JTextField();
+        txtTasaAnual = new javax.swing.JTextField();
         btnLimpiar = new javax.swing.JButton();
-        btnCredito = new javax.swing.JButton();
-        txtCredito = new javax.swing.JTextField();
+        btnTasaAnual = new javax.swing.JButton();
         btnDepositar = new javax.swing.JButton();
         txtRetirar = new javax.swing.JTextField();
         txtDepositar = new javax.swing.JTextField();
@@ -83,7 +82,6 @@ public class VentanaCC extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         setBounds(new java.awt.Rectangle(0, 0, 500, 561));
-        setMaximumSize(new java.awt.Dimension(702, 518));
         setMinimumSize(new java.awt.Dimension(702, 518));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -101,10 +99,10 @@ public class VentanaCC extends javax.swing.JFrame {
             }
         });
 
-        txtLimiteCredito.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtLimiteCredito.addActionListener(new java.awt.event.ActionListener() {
+        txtTasaAnual.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtTasaAnual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLimiteCreditoActionPerformed(evt);
+                txtTasaAnualActionPerformed(evt);
             }
         });
 
@@ -120,25 +118,16 @@ public class VentanaCC extends javax.swing.JFrame {
             }
         });
 
-        btnCredito.setBackground(java.awt.Color.darkGray);
-        btnCredito.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        btnCredito.setForeground(new java.awt.Color(204, 204, 204));
-        btnCredito.setText("Solicitar crédito");
-        btnCredito.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnCredito.addActionListener(new java.awt.event.ActionListener() {
+        btnTasaAnual.setBackground(java.awt.Color.darkGray);
+        btnTasaAnual.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
+        btnTasaAnual.setForeground(new java.awt.Color(204, 204, 204));
+        btnTasaAnual.setText("Aplicar tasa");
+        btnTasaAnual.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnTasaAnual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreditoActionPerformed(evt);
+                btnTasaAnualActionPerformed(evt);
             }
         });
-
-        txtCredito.setBackground(new java.awt.Color(102, 102, 102));
-        txtCredito.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
-        txtCredito.setForeground(new java.awt.Color(204, 204, 204));
-        txtCredito.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtCredito.setBorder(null);
-        txtCredito.setCaretColor(new java.awt.Color(255, 255, 255));
-        txtCredito.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        txtCredito.setSelectionColor(new java.awt.Color(102, 102, 102));
 
         btnDepositar.setBackground(java.awt.Color.darkGray);
         btnDepositar.setFont(new java.awt.Font("Rockwell", 0, 14)); // NOI18N
@@ -168,6 +157,11 @@ public class VentanaCC extends javax.swing.JFrame {
         txtDepositar.setCaretColor(new java.awt.Color(255, 255, 255));
         txtDepositar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtDepositar.setSelectionColor(new java.awt.Color(102, 102, 102));
+        txtDepositar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDepositarActionPerformed(evt);
+            }
+        });
 
         txtNumCuenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNumCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +187,7 @@ public class VentanaCC extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 25)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Banco App (Cuenta Corriente)");
+        jLabel1.setText("Banco App (Cuenta de Ahorros)");
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
@@ -217,7 +211,7 @@ public class VentanaCC extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Rockwell", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel8.setText("Límite de crédito:");
+        jLabel8.setText("Tasa de interés anual:");
 
         txtCorreo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
@@ -285,11 +279,9 @@ public class VentanaCC extends javax.swing.JFrame {
                     .addComponent(txtRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCredito, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTasaAnual, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(123, 123, 123))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +297,7 @@ public class VentanaCC extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(txtLimiteCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTasaAnual, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btnCrearCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -357,7 +349,7 @@ public class VentanaCC extends javax.swing.JFrame {
                             .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLimiteCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTasaAnual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
@@ -367,8 +359,7 @@ public class VentanaCC extends javax.swing.JFrame {
                     .addComponent(btnMostrarDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDepositar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTasaAnual, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,14 +395,14 @@ public class VentanaCC extends javax.swing.JFrame {
             txtTipoCuenta.setText(cuenta.getTipoCuenta());
             txtCorreo.setText(cuenta.getCorreo());
             txtSaldo.setText("$" + String.valueOf(cuenta.getSaldo()));
-            txtLimiteCredito.setText("$" + String.valueOf(cuenta.getLimiteDeCredito()));
+            txtTasaAnual.setText(100 * cuenta.getTasaInteresAnual() + "%");
         }
         
     }//GEN-LAST:event_btnMostrarDatosActionPerformed
 
-    private void txtLimiteCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLimiteCreditoActionPerformed
+    private void txtTasaAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTasaAnualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLimiteCreditoActionPerformed
+    }//GEN-LAST:event_txtTasaAnualActionPerformed
 
     // Boton para limpiar los datos de la cuenta presentada
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
@@ -421,29 +412,26 @@ public class VentanaCC extends javax.swing.JFrame {
         txtTipoCuenta.setText("");
         txtCorreo.setText("");
         txtSaldo.setText("");
-        txtLimiteCredito.setText("");
+        txtTasaAnual.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
-    // Boton para solicitar un crédito
-    private void btnCreditoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreditoActionPerformed
-        if (bandera == true){
-            try{
-               // Pasamos el valor que está en el campo de texto al método solicitar crédito
-               cuenta.solicitarCredito(Double.parseDouble(txtCredito.getText()));
-            }
-            catch(NumberFormatException e){
-                // Bloque para atrapar cuando se ingresa algo que no es un numero
-                JOptionPane.showMessageDialog(null, "Error! Valor ingresado no válido");
-            }
-            
+    // Boton para aplicar tasa de interés anual
+    private void btnTasaAnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTasaAnualActionPerformed
+        // Si todavía no se aplica la tasa
+        if (bandera == false){
+            JOptionPane.showMessageDialog(null, "Error! Crea una cuenta primero");
+        }
+        else if (tasaAplicada == false){
+            cuenta.aplicarTasa();
+            tasaAplicada = true;
             txtSaldo.setText("$" + String.valueOf(cuenta.getSaldo()));
         }
         else{
-            JOptionPane.showMessageDialog(null, "Error! Crea una cuenta primero");
+            JOptionPane.showMessageDialog(null, "Ya se ha aplicado la tasa para este año!");
         }
         
-        txtCredito.setText("");
-    }//GEN-LAST:event_btnCreditoActionPerformed
+        
+    }//GEN-LAST:event_btnTasaAnualActionPerformed
 
     // Boton para depositar dinero en la cuenta
     private void btnDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositarActionPerformed
@@ -529,7 +517,7 @@ public class VentanaCC extends javax.swing.JFrame {
             }
             
             cuenta.setNumCuenta("23489");
-            cuenta.setLimiteDeCredito(3000.0);
+            cuenta.setTasaInteresAnual(0.05);
             try{
                 cuenta.setCorreo(cuenta.getNombreTitular().replaceAll("\\s", "").toLowerCase() + "01@gmail.com");
             }
@@ -545,15 +533,19 @@ public class VentanaCC extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
+    private void txtDepositarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepositarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDepositarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearCuenta;
-    private javax.swing.JButton btnCredito;
     private javax.swing.JButton btnDepositar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnMostrarDatos;
     private javax.swing.JButton btnRegresar;
     private javax.swing.JButton btnRetirar;
+    private javax.swing.JButton btnTasaAnual;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -563,13 +555,12 @@ public class VentanaCC extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtCredito;
     private javax.swing.JTextField txtDepositar;
-    private javax.swing.JTextField txtLimiteCredito;
     private javax.swing.JTextField txtNombreTitular;
     private javax.swing.JTextField txtNumCuenta;
     private javax.swing.JTextField txtRetirar;
     private javax.swing.JTextField txtSaldo;
+    private javax.swing.JTextField txtTasaAnual;
     private javax.swing.JTextField txtTipoCuenta;
     // End of variables declaration//GEN-END:variables
 } // Clase Ventana
